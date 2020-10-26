@@ -14,7 +14,7 @@
           required
           ngModel>
         </div>
-        <button class="btn btn-primary" type="button">Suggest an Username</button>
+        <button class="btn btn-primary" type="button" (click)="suggestedUserName()">Suggest an Username</button>
         <div class="form-group">
           <label for="email">Mail</label>
           <input type="email"
@@ -47,6 +47,7 @@
            [(ngModel)]="answer"></textarea>
         </div>
         <p>Your reply: {{answer}}</p>
+        <p>Select Gender:</p>
         <div class="radio" *ngFor="let gender of genders">
             <label>
                 <input type="radio"
@@ -63,4 +64,15 @@
       </form>
     </div>
   </div>
+  <hr>
+  <div class="row" *ngIf="submitted">
+    <div class="col-xs-12">
+    <h3>Your Data:</h3>
+    <p>UserName: {{user.username}} </p>
+    <p>Mail: {{user.email}}</p>
+    <p>Secret Question: {{user.secretQuestion}}</p>
+    <p>Answer: {{user.answer}}</p>
+    <p>Gender: {{user.gender}}</p>
+  </div>
+</div>
 </div>
